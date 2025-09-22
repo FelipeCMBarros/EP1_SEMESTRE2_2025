@@ -32,3 +32,16 @@ def get_coordenadas(tabuleiro, valor, cor):
             if peca[0] == valor and peca[1] == cor:
                 return [i, j]
     return [-1, -1]
+
+def movimento_valido(tabuleiro, origem, destino):
+    linha_o, col_o = origem
+    linha_d, col_d = destino
+    
+    peca_origem = tabuleiro[linha_o][col_o]
+    peca_destino = tabuleiro[linha_d][col_d]
+    
+    mesma_linha_ou_coluna = (linha_o == linha_d) or (col_o == col_d)
+    
+    mesmo_valor_ou_cor = (peca_origem[0] == peca_destino[0]) or (peca_origem[1] == peca_destino[1])
+    
+    return mesma_linha_ou_coluna and mesmo_valor_ou_cor
