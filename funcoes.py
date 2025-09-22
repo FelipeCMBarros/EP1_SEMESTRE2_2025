@@ -25,3 +25,10 @@ def cria_tabuleiro(n):
         tabuleiro.append(linha)
     
     return tabuleiro
+
+def get_coordenadas(tabuleiro, valor, cor):
+    for i, linha in enumerate(tabuleiro):
+        for j, peca in enumerate(linha):
+            if peca[0] == valor and peca[1] == cor:
+                return [i, j]
+    return [-1, -1]
