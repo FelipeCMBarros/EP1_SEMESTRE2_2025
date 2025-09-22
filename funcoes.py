@@ -1,3 +1,5 @@
+import random
+
 def cria_pecas(n):
     pecas = []
 
@@ -10,3 +12,16 @@ def cria_pecas(n):
         pecas.append([x + 1, 'vermelho'])
 
     return pecas
+
+def cria_tabuleiro(n):
+    pecas = cria_pecas(n)
+    
+    random.shuffle(pecas)
+    
+    tabuleiro = []
+
+    for x in range(n):
+        linha = pecas[x*6:(x+1)*6]  
+        tabuleiro.append(linha)
+    
+    return tabuleiro
